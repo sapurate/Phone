@@ -1,0 +1,106 @@
+<!doctype html>
+<b lang="zh">
+{#<head>#}
+{#	<meta charset="UTF-8">#}
+{#	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">#}
+{#	<meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+{#	<title>主页</title>#}
+{#	<link rel="stylesheet" type="text/css" href="https://www.html5tricks.com/demo/html5-canvas-chart-js/css/normalize.css" />#}
+{#	<link rel="stylesheet" type="text/css" href="https://www.html5tricks.com/demo/html5-canvas-chart-js/css/default.css">#}
+{#	<style type="text/css">#}
+{##}
+{#	</style>#}
+{#	<!--[if IE]>#}
+{#		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>#}
+{#	<![endif]-->#}
+{#</head>#}
+
+    <title>主页</title>
+
+{% include 'bar.html' %}<br/>
+<body>
+		<div class="htmleaf-content" style="margin:0 auto;width:90%;">
+            <div style="width:40%;margin:0 auto;height: 200px;float: left;background: aquamarine;">
+
+            </div>
+			<div style="width:40%;margin:0 auto;float: right;">
+                <h2 align="center">7日成单量对比<a style="font-size: 12px">2020-02-14</a></h2>
+                <canvas id="canvas1" height="40%" width="80%"></canvas>
+                    <h2 ></h2><br/>
+                <h2 align="center">7日成单率对比<a style="font-size: 12px">2020-02-14</a></h2>
+				<canvas id="canvas2" height="40%" width="80%"></canvas>
+		    </div>
+		</div>
+	</div>
+
+	<script src="https://www.html5tricks.com/demo/html5-canvas-chart-js/js/Chart.js"></script>
+	<script>
+	var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+		var lineChartData1 = {
+			labels : ["03-01","03-02","03-03","03-04","03-05","03-06","03-07"],
+			datasets : [
+				{#{#}
+				{#	label: "team1",#}
+				{#	fillColor : "rgba(220,220,220,0.2)",#}
+				{#	strokeColor : "rgba(220,220,220,1)",#}
+				{#	pointColor : "rgba(220,220,220,1)",#}
+				{#	pointStrokeColor : "#fff",#}
+				{#	pointHighlightFill : "#fff",#}
+				{#	pointHighlightStroke : "rgba(220,220,220,1)",#}
+				{#	data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]#}
+				{#},#}
+				{
+					label: "team2",
+					fillColor : "rgba(151,187,205,0.2)",
+					strokeColor : "rgba(151,187,205,1)",
+					pointColor : "rgba(151,187,205,1)",
+					pointStrokeColor : "#fff",
+					pointHighlightFill : "#fff",
+					pointHighlightStroke : "rgba(151,187,205,1)",
+					data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+				}
+			]
+
+		}
+		var lineChartData2 = {
+			labels : ["03-01","03-02","03-03","03-04","03-05","03-06","03-07"],
+			datasets : [
+				{#{#}
+				{#	label: "team1",#}
+				{#	fillColor : "rgba(220,220,220,0.2)",#}
+				{#	strokeColor : "rgba(220,220,220,1)",#}
+				{#	pointColor : "rgba(220,220,220,1)",#}
+				{#	pointStrokeColor : "#fff",#}
+				{#	pointHighlightFill : "#fff",#}
+				{#	pointHighlightStroke : "rgba(220,220,220,1)",#}
+				{#	data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]#}
+				{#},#}
+				{
+					label: "team2",
+					fillColor : "rgba(151,187,205,0.2)",
+					strokeColor : "rgba(151,187,205,1)",
+					pointColor : "rgba(151,187,205,1)",
+					pointStrokeColor : "#fff",
+					pointHighlightFill : "#fff",
+					pointHighlightStroke : "rgba(151,187,205,1)",
+					data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+				}
+			]
+
+		}
+
+	window.onload = function(){
+		var ctx1 = document.getElementById("canvas1").getContext("2d");
+		window.myBar = new Chart(ctx1).Bar(lineChartData1, {
+			responsive: true
+		});
+		var ctx2 = document.getElementById("canvas2").getContext("2d");
+		window.myLine = new Chart(ctx2).Line(lineChartData2, {
+			responsive: true
+		});
+	}
+
+
+	</script>
+</body>
+</html>

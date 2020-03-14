@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>本地坐席今日外呼情况</title>
+</head>
+
+<center>
+<br>
+<h2>本地坐席今日外呼情况实时查询</h2>
+</br>
+<table border="1">
+    <tr>
+        <th>地市</th>
+        <th>坐席</th>
+        <th>接通</th>
+        <th>成功</th>
+        <th>成功率</th>
+    </tr>
+    {% for i in status %}
+    <tr>
+    {% for v in i %}
+            <td>{{ v }}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</center>
+</html>

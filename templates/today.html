@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>今日外呼情况</title>
+</head>
+{% include 'bar.html' %}
+<center>
+    <body>
+<br>
+<h2>今日外呼情况实时查询</h2> </br>
+
+<form action="/today" method="get">
+<input type="hidden" name="team" value="0" />
+    <button>总体情况</button>
+</form>
+
+<br><br>
+
+<form action="/today" method="get">
+<input type="hidden" name="team" value="2" />
+    <button>本地团队情况</button>
+</form>
+
+    </body>
+</center>
+</html>

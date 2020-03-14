@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>设置</title>
+</head>
+{% include 'bar.html' %}
+<body>
+<div align="center" style="height: 400px;margin: 0 auto;background: aquamarine;">
+    <form action="/set" method="get">
+        <input type="hidden" name="f5" value="1" />
+        <button>更新主页数据</button>
+    </form>
+    <h2>{{ status }}</h2>
+</div>
+</body>
+</html>
+

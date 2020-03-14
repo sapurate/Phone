@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查询近2月呼叫记录</title>
+</head>
+{% include 'bar.html' %}
+<center>
+</br>
+<h2>查询近2月的外呼记录</h2>
+<form action="/search" method="get">
+<select name="log_name" >
+    <option value ="yc_xuzhufei@hb">宜昌</option>
+    <option value ="jm_houqingyang@hb">荆门</option>
+    <option value ="jh_xuzhufei@hb">江汉</option>
+    <option value ="xy_xuzhufei@hb">襄阳</option>
+    <option value ="yc_xuzhufei02@hb">宜昌_本地</option>
+    <option value ="jm_xuzhufei@hb">荆门_本地</option>
+    <option value ="jh_xuzhufei02@hb">江汉_本地</option>
+    <option value ="xy_xuzhufei01@hb">襄阳_本地</option>
+</select>
+<input name="Phone" />
+    <button>查询</button>
+</form></br>
+<table border="1">
+    <tr>
+        <th>日期</th>
+        <th>号码</th>
+        <th>意向</th>
+        <th>产品</th>
+        <th>下载</th>
+    </tr>
+{% if status != 200 %}
+    {% for i in status %}
+    <tr>
+            <td>{{ i.createTime }}</td>
+            <td>{{ i.called }}</td>
+            <td>{{ i.handleResult }}</td>
+            <td>{{ i.productName }}</td>
+            <td><a href={{ i.recordFile }}>下载</a></td>
+    </tr>
+    {% endfor %}
+{% endif %}
+</table>
+
+</body>
+</center>
+</html>
