@@ -1,0 +1,6 @@
+hello world!
+from django.shortcuts import render
+import pymysql, datetime
+# Create your views here.
+def index(request):
+    f = open('static/da
